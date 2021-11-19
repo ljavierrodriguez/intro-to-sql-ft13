@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS contacts;
+CREATE TABLE contacts (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
+    phone VARCHAR(255) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+DROP TABLE IF EXISTS llamadas;
+CREATE TABLE llamadas (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    contacts_id INTEGER NOT NULL,
+    comment TEXT,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (contacts_id) REFERENCES contacts(id)
+);
